@@ -1,17 +1,29 @@
 <header class="header-nav">
-    <div>
-        <a href="/">
-            <img 
-            src="{{ 'logo.png' |  asset_url }}" 
-            width="80"
-            height="50"
-            >
-        </a>
-    </div>
-    <div>
-        <ul class="middlea-nav-bar">
-            <li></li>
-        </ul>
-    </div>
-    <div></div>
+  <div>
+    <a href="/">
+      <img
+        src="{{ 'logo.png' |  asset_url }}"
+        width="80"
+        height="50"
+      >
+    </a>
+  </div>
+  <div>
+    <ul class="middle-nav-links">
+      {% for link in linklists['main-menu'].links %}
+        <li>{{ link.title | link_to: link.url }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="right-nav-items">
+    <form action="/search">
+      <input type="search" placeholder="search" class="search-nav">
+    </form>
+    <img
+      src="{{ 'a.png' |  asset_url }}"
+      width="40"
+      height="40"
+      loading="lazy"
+    >
+  </div>
 </header>
